@@ -7,34 +7,27 @@
     </view>
     
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view class="bibletext">
-    <text>{{bible_title}}</text>
-  </view>
-  <view class="bibletext">
-    <text>{{sec1}}</text>
-  </view>
-  <view class="bibletext">
-    <text>{{sec2}}</text>
-  </view>
-  <view class="bibletext">
-    <input name="input" placeholder="请填写第三小节..." />
-  </view>
-  <view class="bibletext">
-    <text>{{sec4}}</text>
-  </view>
-  <view class="bibletext">
-    <text>{{sec5}}</text>
-  </view>
-  <view class="bibletext">
-    <input name="input" placeholder="请填写第六小节..." />
-  </view>
-  <view class="bibletext">
-    <text>{{sec7}}</text>
-  </view>
-  <view class="btn-area">
-    <button formType="submit">Submit</button>
-    <button formType="reset">Reset</button>
-  </view>
+  <view class="panel">
+    <view class="title">测试组件</view>
+    
+      <text class="testcounter">Insert In mySQL</text>
+      <view class="counterview">
+      <view class="counter {{$counter1$style}}">
+        <button bindtap="addButton1" size="mini">  +  </button>
+        <button bindtap="minusButton1" size="mini">  -  </button>
+        <view class="section">
+          <input placeholder="{{counter1}}" auto-focus/>
+        </view>
+        <button bindtap="addButton2" size="mini">  +  </button>
+        <button bindtap="minusButton2" size="mini">  -  </button>
+        <view class="section">
+          <input placeholder="{{counter2}}" auto-focus/>
+        </view>
+        <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="submitButton" hover-class="other-button-hover"> Submit </button>
+        <text>{{response}}</text>
+      </view>
+    </view>
+  </view>  
  </form>
 
 </scroll-view>
