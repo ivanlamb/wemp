@@ -18,45 +18,47 @@ Page({
     counter1:0,
     counter2:0,
     response:"OK",
-    selectData:''
+    selectData:'',
   },
   
-  updateText: function (e, text1) {
-    this.setData({
-      response: text1
+  updateText: function (e) {
+    var that = this;
+    that.setData({
+      response: e.detail.value
     })
+    console.log('response:', that.data.response)
   },
 
   addButton1: function (e) {
-    counter1: 0
-    this.setData({
-      counter1: this.counter1+1
+    var that = this;
+    that.setData({
+      counter1: that.data.counter1+1
     })
-    console.log('counter1:', this.counter1)
+    console.log('counter1:', that.data.counter1)
   },
 
   minusButton1: function (e) {
-    counter1: 0
-    this.setData({
-      counter1: this.counter1-1
+    var that = this;
+    that.setData({
+      counter1: that.data.counter1-1
     })
-    console.log('counter1:', this.counter1)
+    console.log('counter1:', that.data.counter1)
   },
 
   addButton2: function (e) {
-    counter2: 0
+    var that = this;
     this.setData({
-      counter2: this.counter2+1
+      counter2: that.data.counter2+1
     })
-    console.log('counter2:', this.counter2)
+    console.log('counter2:', that.data.counter2)
   },
 
   minusButton2: function (e) {
-    counter2: 0
-    this.setData({
-      counter2: this.counter2-1
+    var that = this;
+    that.setData({
+      counter2: that.data.counter2-1
     })
-    console.log('counter2:', this.counter2)
+    console.log('counter2:', that.data.counter2)
   },
 
   submitButton: function (e) {
