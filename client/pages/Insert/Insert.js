@@ -65,8 +65,8 @@ Page({
     wx.request({
       url: 'http://44ln6hzr.qcloud.la/weapp/insert', 
       data: {
-        x: this.counter1,
-        y: this.counter2
+        x: that.data.counter1,
+        y: that.data.counter2
       },
       header: {
         'content-type': 'application/json' // 默认值
