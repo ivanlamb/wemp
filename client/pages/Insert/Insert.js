@@ -62,6 +62,7 @@ Page({
   },
 
   submitButton: function (e) {
+    var that = this;
     wx.request({
       url: 'http://44ln6hzr.qcloud.la/weapp/insert', 
       data: {
