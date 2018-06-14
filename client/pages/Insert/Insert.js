@@ -17,7 +17,8 @@ Page({
     sec3:"3",
     counter1:0,
     counter2:0,
-    response:"OK"
+    response:"OK",
+    selectData:''
   },
   
   updateText: function (e, text1) {
@@ -74,6 +75,23 @@ Page({
     })
   },
 
+  queryButton: function () {
+    var that = this;
+    wx.request({
+      url: 'http://44ln6hzr.qcloud.la/weapp/select', //仅为示例，并非真实的接口地址
+
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          selectData: res.data
+        });
+      }
+    })
+  },
+  
   formSubmit: function (e) {
     //console.log('form发生了submit事件，携带数据为：', e.detail.value)
 

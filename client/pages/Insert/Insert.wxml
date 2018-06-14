@@ -25,6 +25,7 @@
         </view>
         <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="submitButton" hover-class="other-button-hover"> Submit </button>
         <text>{{response}}</text>
+        <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="queryButton" hover-class="other-button-hover"> Query </button>
       </view>
     </view>
   </view>  
