@@ -16,8 +16,8 @@ module.exports = async ctx => {
   // cts.querystring
   var mycustomer = {
     c_id: id,
-    c_name: ctx.querystring,
-    c_balance: 0
+    c_name: ctx.query.x,
+    c_balance: ctx.query.y
   }
   await mysql("customer").insert(mycustomer)
  
