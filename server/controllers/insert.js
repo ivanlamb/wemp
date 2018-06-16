@@ -8,12 +8,16 @@ const { mysql } = require('../qcloud')
 const uuid = require('node-uuid')
 
 module.exports = async ctx => {
-  var id = uuid.v1()
-  // 增
+
+  var id = uuid.v1();
+
+  // 增 cts.request.body
+  // cts.query
+  // cts.querystring
   var mycustomer = {
     c_id: id,
-    c_name: "ALVIN",
-    c_balance: 88
+    c_name: ctx.querystring,
+    c_balance: 0
   }
   await mysql("customer").insert(mycustomer)
  

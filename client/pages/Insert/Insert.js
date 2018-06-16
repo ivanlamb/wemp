@@ -69,6 +69,7 @@ Page({
         x: that.data.counter1,
         y: that.data.counter2
       },
+      method:'GET',
       header: {
         'content-type': 'application/json' // 默认值
       },
