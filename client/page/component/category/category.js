@@ -1,24 +1,23 @@
 Page({
   data: {
     category: [
-      { name: '饮料', id: 'tixu' },
-      { name: '小吃', id: 'maoyi' },
-      { name: '服务', id: 'fengyi' },
-      { name: '礼物', id: 'xizhuang' },
-      { name: '其他', id: 'kuzi' },
-      { name: '会員', id: 'qunzi' }
+      { name: '主餐', id: 'zc0' },
+      { name: '頭盤', id: 'tp1' },
+      { name: '飲料', id: 'yl2' },
+      { name: '其他', id: 'qt999'}
     ],
     detail: [],
     curIndex: 0,
     isScroll: false,
-    toView: 'tixu'/*默认定位到哪个view*/
+    toView: 'zc0'/*默认定位到哪个view*/
   },
 
 
   onReady() {
     var self = this;
     wx.request({
-      url: '../category/get_all', success(res) {
+      url: 'http://44ln6hzr.qcloud.la/weapp/selectCata', 
+      success(res) {
         console.log(res.data)
         self.setData({
           detail: res.data
@@ -26,6 +25,7 @@ Page({
       }
     });
   },
+
   switchTab(e) {
     const self = this;
     this.setData({
