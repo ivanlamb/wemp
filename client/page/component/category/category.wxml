@@ -7,7 +7,7 @@
     <view wx:for="{{detail}}" wx:key="index">
       <view id="{{item.cata_desc}}" class="cate-box">
         <view class="product">
-          <!-- <image class="test" src="{{item.item_pic_url}}"></image> -->
+          <image class="test" src="{{item.item_pic_url}}"></image> 
           <text>{{item.item_short_desc}}</text>
           <text>{{item.item_price}}</text>
         </view>

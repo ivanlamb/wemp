@@ -7,10 +7,10 @@ Page({
       { cata_id: '999', cata_desc: '其他', cata_type: 'Main'}
     ],
     detail: [
-      { item_pic_url: 'https://44ln6hzr.qcloud.la/images/menuitems/0.jpeg', item_short_desc: '宫保鸡丁', item_price: '50' },
-      { item_pic_url: 'https://44ln6hzr.qcloud.la/images/menuitems/1.jpeg', item_short_desc: '生炒排骨', item_price: '40' },
-      { item_pic_url: 'https://44ln6hzr.qcloud.la/images/menuitems/2.jpeg', item_short_desc: '土雞蛋炒蝦仁', item_price: '35' },
-      { item_pic_url: 'https://44ln6hzr.qcloud.la/images/menuitems/3.jpeg', item_short_desc: '椒鹽九肚魚', item_price: '60' }
+      { item_pic_url: 'http://localhost:8080/images/menuitems/0.jpeg', item_short_desc: '宫保鸡丁', item_price: '50' },
+      { item_pic_url: 'http://localhost:8080/images/menuitems/1.jpeg', item_short_desc: '生炒排骨', item_price: '40' },
+      { item_pic_url: 'http://localhost:8080/images/menuitems/2.jpeg', item_short_desc: '土雞蛋炒蝦仁', item_price: '35' },
+      { item_pic_url: 'http://localhost:8080/images/menuitems/3.jpeg', item_short_desc: '椒鹽九肚魚', item_price: '60' }
     ],
     curIndex: 0,
     isScroll: false,
