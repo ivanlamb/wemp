@@ -1,10 +1,10 @@
 Page({
   data: {
     category: [
-      { name: '主餐', id: 'zc0' },
-      { name: '頭盤', id: 'tp1' },
-      { name: '飲料', id: 'yl2' },
-      { name: '其他', id: 'qt999'}
+      { cata_id: '0', cata_desc: '主餐', cata_type: 'Main'},
+      { cata_id: '1', cata_desc: '頭盤', cata_type: 'Main' },
+      { cata_id: '2', cata_desc: '飲料', cata_type: 'Main' },
+      { cata_id: '999', cata_desc: '其他', cata_type: 'Main'}
     ],
     detail: [],
     curIndex: 0,
@@ -14,14 +14,17 @@ Page({
 
 
   onReady() {
-    var self = this;
+    var that = this;
     wx.request({
       url: 'http://44ln6hzr.qcloud.la/weapp/selectCata', 
       success(res) {
-        console.log(res.data)
-        self.setData({
-          detail: res.data
+        console.log(res.data.data)
+        console.log(that.data.category)
+        that.setData({
+          //detail: res.data
+          category: res.data.data
         })
+        console.log(that.data.category)
       }
     });
   },
