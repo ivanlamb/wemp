@@ -38,5 +38,6 @@ router.get('/update', controllers.update)
 router.get('/insert', controllers.insert)
 router.get('/delete', controllers.delete)
 router.get('/selectCata', controllers.selectCata)
+//router.get('/images', image)
 
 module.exports = router
