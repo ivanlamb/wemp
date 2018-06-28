@@ -13,7 +13,8 @@ Page({
       { item_pic_url: '../../../images/menuitems/3.jpeg', item_short_desc: '椒鹽九肚魚', item_price: '60' }
     ],
     curIndex: 0,
-    isScroll: false,
+    isScroll: true,
+    counter1: 0,
     toView: '0'/*默认定位到哪个view*/
   },
 
@@ -51,6 +52,21 @@ Page({
       })
     }, 1)
 
-  }
+  },
 
+  addButton1: function (e) {
+    var that = this;
+    that.setData({
+      counter1: that.data.counter1 + 1
+    })
+    console.log('counter1:', that.data.counter1)
+  },
+
+  minusButton1: function (e) {
+    var that = this;
+    that.setData({
+      counter1: that.data.counter1 - 1
+    })
+    console.log('counter1:', that.data.counter1)
+  }
 })

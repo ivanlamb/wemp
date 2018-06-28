@@ -1,18 +1,31 @@
-<view class="main">
-  <view class="categroy-left">
-    <view wx:for="{{category}}" wx:key="index" data-id="{{item.cata_id}}" data-index="{{index}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item.cata_desc}}</view>
+<view class="main" scroll-y="false">
+  
+  <view class="categroy-bottom" scroll-y="false"> 
+    <button bindtap="addorder1" size="mini">  点单  </button>
   </view>
 
-  <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
-    <view wx:for="{{detail}}" wx:key="index">
-      <view id="{{item.cata_desc}}" class="cate-box">
-        <view class="product">
-          <image class="test" src="{{item.item_pic_url}}"></image> 
-          <text>{{item.item_short_desc}}</text>
-          <text>{{item.item_price}}</text>
-        </view>
+  <view class="menu">
+    <view class="categroy-left" scroll-y="false">
+      <view wx:for="{{category}}" wx:key="index" data-id="{{item.cata_id}}" data-index="{{index}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item.cata_desc}}
       </view>
     </view>
-  </scroll-view>
 
+    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+      <view wx:for="{{detail}}" wx:key="index">
+        <view id="{{item.cata_desc}}" class="cate-box">
+          <view class="product">
+            <image style="width:80px;height:60px;" class="test" src="{{item.item_pic_url}}"></image> 
+            <text> {{item.item_short_desc}}</text>
+            <text> 描述:{{item.item_long_desc}}</text>
+            <text> 价格:{{item.item_price}}</text>
+            <view class="section">
+              <button bindtap="addButton1" size="mini">  +  </button>
+              <button bindtap="minusButton1" size="mini">  -  </button>
+              <input placeholder="{{counter1}}" auto-focus/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 </view>
