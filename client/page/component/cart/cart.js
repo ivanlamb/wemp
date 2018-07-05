@@ -1,60 +1,32 @@
 // page/component/new-pages/cart/cart.js
 Page({
+  
   data: {
-    carts: [],               // 购物车列表
-    hasList: false,          // 列表是否有数据
-    totalPrice: 0,           // 总价，初始为0
-    selectAllStatus: true,    // 全选状态，默认全选
-    obj: {
-      name: "hello"
-    },
-    model: '',
-    orders: ["oordd"],
+    cartsitem: [
+      { cin_custname: 'kwokkawai', order_qty: 1, item_price: 40, amount: 40, item_short_desc: '生炒排骨', item_long_desc: '生炒排骨' },
+      { cin_custname: 'kwokkawai', order_qty: 1, item_price: 35, amount: 35, item_short_desc: '土雞蛋炒蝦仁', item_long_desc: '土雞蛋炒蝦仁' },
+      { cin_custname: 'kwokkawai', order_qty: 1, item_price: 60, amount: 60, item_short_desc: '椒鹽九肚魚', item_long_desc: '椒鹽九肚魚' }
+    ],
+    curIndex: 0,
+    isScroll: true,
+    counter1: 0,
+    toView: '0'/*默认定位到哪个view*/
   },
 
-  onShow() {//网络请求从数据库中获取购物车信息,比onReady先执行，实时显示购物车状态   
-    var self = this;
+  onReady() {
+    var that = this;
     wx.request({
-      url: 'http://localhost:8080/yMybatis/cart/get_all',
+      url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView',
       success(res) {
-        //console.log(res.data);
-        self.setData({
-          carts: res.data,
-          //new_even:res.data[2].goodName.substr(3,6)//good  
-        });
+        console.log(res.data.data)
+        //console.log(that.data.category)
+        that.setData({
+          //detail: res.data
+          cartsitem: res.data.data
+        })
+        //console.log(that.data.category)
       }
     });
-    this.setData({
-      hasList: true,
-    });
-  },
-
-  test() {
-    let carts = this.data.carts;                  // 获取购物车列表
-    let total = 0;
-    let temp = [];
-    for (let i = 0; i < carts.length; i++) {         // 循环列表得到每个数据
-      if (carts[i].selected) {                     // 判断是否选中
-        temp.push(carts[i])
-      }
-    }
-    //console.log("temp:"+temp)
-    this.setData({
-      orders: temp
-    });
-    var order_info = JSON.stringify(this.data.orders)
-    //console.log(order_info)
-    //将选中的数据发往后台数据库，数据量大，用POST，迟早要做，目前不会
-    var self = this;
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/order',
-      header: {
-        "Content-Type": "application/json;charset=utf-8",       
-      },  
-      method:"POST",
-      data: "{'json':'"+order_info+"'}",//不要用双引号，后台会错，暂时解决不了
-    });
-    //console.log("LOOKHERE:"+this.data.orders[1].goodName)//重要！！！！注意和上面直接order的区别（有this.setData在牵头）
   },
 
   /**
