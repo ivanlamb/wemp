@@ -21,31 +21,6 @@ Page({
       //new_even: "aabybccddeeffgghhii".substr(3,6)       
     })
     var self = this;
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/get_all_odd',
-      success(res) {
-        self.setData({
-          odd_goods: res.data,
-          //new_even:res.data[2].goodName.substr(3,6)//good      
-        });
-      }
-    });
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/get_all_even',
-      success(res) {
-        self.setData({
-          even_goods: res.data,
-        });
-      },
-    });
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/get_title',
-      success(res) {
-        self.setData({
-          title_goods: res.data,
-        });
-      },
-    });
   },
 
 })

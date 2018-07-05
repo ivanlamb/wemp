@@ -21,23 +21,9 @@ Page({
           nickname: res.userInfo.nickName
         })
       }
-    }),
-
-      /**
-       * 发起请求获取订单列表信息（待做：自动刷新）
-       */
-      setTimeout(function () {//用延迟执行的方式避免因为事务冲突得到刚刚删除空的数据库而得不到数据
-        wx.request({
-          url: 'http://localhost:8080/yMybatis/order/get_all',
-          success(res) {
-            console.log(res.data)
-            self.setData({
-              orders: res.data
-            })
-          }
-        });
-      }, 1000)
+    })      
   },
+  
   onShow() {
     var self = this;
     /**

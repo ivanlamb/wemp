@@ -14,7 +14,7 @@ Page({
     interval: 3000,
     duration: 800,
   },
-
+  /*
   onReady() {//获取奇数商品详情    
     this.setData({
       new_even:this.data.new_even.substr(1,6),
@@ -47,5 +47,6 @@ Page({
       },
     });
   },
+  */
 
 })

@@ -18,7 +18,7 @@ Page({
     wx.request({
       url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView',
       success(res) {
-        console.log(res.data.data)
+        //console.log(res.data.data)
         //console.log(that.data.category)
         that.setData({
           //detail: res.data
