@@ -8,6 +8,7 @@
       "page/component/orders/orders",
       "page/component/details/details",
       "page/component/list/list",
+      "page/component/bill/bill",
       "pages/Insert/Insert"
   ],
   "window": {
@@ -38,16 +39,10 @@
       "selectedIconPath": "images/31.png",
       "text": "订单"
     }, {
-      "pagePath": "page/component/user/user",
+      "pagePath": "page/component/bill/bill",
       "iconPath": "images/42.png",
       "selectedIconPath": "images/41.png",
       "text": "账单"
-    },
-    {
-      "pagePath": "pages/Insert/Insert",
-      "iconPath": "images/42.png",
-      "selectedIconPath": "images/41.png",
-      "text": "我的Test"
     }
     ]
   },

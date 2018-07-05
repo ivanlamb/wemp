@@ -2,12 +2,12 @@
   <view wx:if="{{cartsitem}}">
     <view class="cart-box">
       <view class="cart-list" wx:for="{{cartsitem}}" wx:key="{{index}}">
-        <text class="cart-custname">{{item.cin_custname}}</text>
-        <text class="cart-orderqty">/{{item.order_qty}}</text>
-        <text class="cart-itemprice">/{{item.item_price}}</text>
-        <text class="cart-amount">/{{item.amount}}</text>
-        <text class="cart-item_short_desc">/{{item.item_short_desc}}</text>
-        <text class="cart-item_long_desc">/{{item.item_long_desc}}</text>
+        <text class="cart-custname">客户名称：{{item.cin_custname}}</text>
+        <text class="cart-orderqty">数量：{{item.order_qty}}</text>
+        <text class="cart-itemprice">单价：{{item.item_price}}</text>
+        <text class="cart-amount">价格：{{item.amount}}</text>
+        <text class="cart-item_short_desc">项目：{{item.item_short_desc}}</text>
+        <text class="cart-item_long_desc">详述：{{item.item_long_desc}}</text>
       </view>
     </view>
   </view>
