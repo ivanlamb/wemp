@@ -32,7 +32,14 @@ Page({
     });
 
     wx.request({
-      url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=" + this.data.curIndex,
+      url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=",
+      data: {
+        curIndex: that.data.curIndex
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
       success(res) {
         console.log(res.data)
         that.setData({
@@ -43,25 +50,53 @@ Page({
   },
 
   switchTab(e) {
-    const self = this;
+    var that = this;
     this.setData({
       isScroll: true
     })
     //setTimeout(function () {
-      self.setData({
+    console.log("HELLLLLLL", this.data.curIndex)
+    console.log("HELLLLLLL", this.data.detail)
+      that.setData({
         toView: e.target.dataset.id,
         curIndex: e.target.dataset.index
       })
     //}, 0)
-    console.log("HELLLLLLL", self.data.curIndex)
-    self.updateCataItem
-    console.log("HELLLLLLL", self.data.detail)
+    //that.updateCataItem
+
+      wx.request({
+        url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=",
+        data: {
+          curIndex: e.target.dataset.index
+        },
+        method: 'GET',
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success(res) {
+          that.setData({
+            detail: res.data.data
+          })
+        }
+      })
+
+
+    console.log("HELLLLLLL", this.data.curIndex)
+    console.log("HELLLLLLL", this.data.detail)
   },
 
   updateCataItem() {
+    var that = this;
     console.log("HELLLLLLL")
     wx.request({
-      url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=" + this.data.curIndex,
+      url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=",
+      data: {
+        curIndex: that.data.curIndex
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
       success(res) {
         that.setData({
           detail: res.data.data
