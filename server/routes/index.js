@@ -38,6 +38,7 @@ router.get('/update', controllers.update)
 router.get('/insert', controllers.insert)
 router.get('/delete', controllers.delete)
 router.get('/selectCata', controllers.selectCata)
+router.get('/selectCataItem', controllers.selectCataItem)
 router.get('/selectOrderView', controllers.selectOrderView)
 //router.get('/images', image)
 

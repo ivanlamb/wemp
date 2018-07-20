@@ -1,52 +1,59 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
+
 Page({
+
   data: {
-    imgUrls: [
-      '/image/b1.jpg',
-      '/image/b2.jpg',
-      '/image/b3.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    odd_goods: ["nae", "john"],
-    even_goods: [],
-    title_goods:[],
-    new_even: "jjfdsafsdafsdafasf",
-    interval: 3000,
-    duration: 800,
+    userInfo: {},
+    logged: false,
+    takeSession: false,
+    requestResult: '',
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  /*
-  onReady() {//获取奇数商品详情    
-    this.setData({
-      new_even:this.data.new_even.substr(1,6),
-      new_even: "aabybccddeeffgghhii".substr(3,6)       
-    })
-    var self = this;
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/get_all_odd',
-      success(res) {
-        self.setData({
-          odd_goods: res.data,
-          //new_even:res.data[2].goodName.substr(3,6)//good      
-        });
+
+  onLoad: function () {
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res)
+              console.log(res.signature)
+              console.log(res.userInfo)
+            }
+          })
+        }
       }
-    });
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/get_all_even',
-      success(res) {
-        self.setData({
-          even_goods: res.data,
-        });
-      },
-    });
-    wx.request({
-      url: 'http://localhost:8080/yMybatis/good/get_title',
-      success(res) {
-        self.setData({
-          title_goods: res.data,
-        });
-      },
-    });
+    })
   },
-  */
+  
+  bindGetUserInfo: function (e) {
+    console.log(e.detail.signature)
+    console.log(e.detail.userInfo)
+  },
+
+  getPhoneNumber: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  },
+
+  login: function () {
+    console.log(config.service.requestUrl)
+    qcloud.request({
+      url: config.service.requestUrl,
+      login: true,
+      success(result) {
+        util.showSuccess('登录成功')
+        that.setData({
+          userInfo: result.data.data,
+          logged: true
+        })
+      }
+    })
+  }
 
 })

@@ -12,7 +12,7 @@
 
     <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
       <view wx:for="{{detail}}" wx:key="index">
-        <view id="{{item.cata_desc}}" class="cate-box">
+        <view id="{{item.cata_desc}}" class="cate-box"> 
           <view class="product">
             <image style="width:80px;height:60px;" class="test" src="{{item.item_pic_url}}"></image> 
             <text> {{item.item_short_desc}}</text>
@@ -27,5 +27,6 @@
         </view>
       </view>
     </scroll-view>
+
   </view>
 </view>

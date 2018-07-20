@@ -24,13 +24,20 @@ Page({
     wx.request({
       url: 'http://44ln6hzr.qcloud.la/weapp/selectCata', 
       success(res) {
-        //console.log(res.data.data)
-        //console.log(that.data.category)
         that.setData({
-          //detail: res.data
           category: res.data.data
         })
-        //console.log(that.data.category)
+        console.log(that.data.category)
+      }
+    });
+
+    wx.request({
+      url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=" + this.data.curIndex,
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          detail: res.data.data
+        })
       }
     });
   },
@@ -40,18 +47,27 @@ Page({
     this.setData({
       isScroll: true
     })
-    setTimeout(function () {
+    //setTimeout(function () {
       self.setData({
         toView: e.target.dataset.id,
         curIndex: e.target.dataset.index
       })
-    }, 0)
-    setTimeout(function () {
-      self.setData({
-        isScroll: false
-      })
-    }, 1)
+    //}, 0)
+    console.log("HELLLLLLL", self.data.curIndex)
+    self.updateCataItem
+    console.log("HELLLLLLL", self.data.detail)
+  },
 
+  updateCataItem() {
+    console.log("HELLLLLLL")
+    wx.request({
+      url: "http://44ln6hzr.qcloud.la/weapp/selectCataItem?curIndex=" + this.data.curIndex,
+      success(res) {
+        that.setData({
+          detail: res.data.data
+        })
+      }
+    })
   },
 
   addButton1: function (e) {

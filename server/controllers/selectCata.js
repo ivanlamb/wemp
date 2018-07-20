@@ -9,7 +9,6 @@ const uuid = require('node-uuid')
 
 module.exports = async ctx => {
   var id = uuid.v1()
-  
   var res = await mysql("apii_Catagory").select('cata_id','cata_desc','cata_type').then(res => {
     console.log(res)
     ctx.state.data = res;
