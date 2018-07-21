@@ -1,2 +1,5 @@
 <!--page/component/bill/bill.wxml-->
-<text>page/component/bill/bill.wxml</text>
+    <view class="orders-footer">
+        <view class="orders-footer-total">付款合计：￥{{totalPrice}}</view>
+        <view class="orders-footer-btn" bindtap="toPay">去付款</view>
+    </view>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    totalPrice: 0
   },
 
   /**
@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    that.getTotalPrice();
   },
 
   /**
@@ -62,5 +62,31 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  getTotalPrice() {
+    let orders = this.data.orders;
+    let total = 0;
+    for (let i = 0; i < orders.length; i++) {
+      total += orders[i].goodNum * orders[i].goodPrice;
+    }
+    console.log("金额" + total)
+    this.setData({
+      total: total
+    })
+  },
+
+  toPay() {
+    wx.showModal({
+      title: '提示',
+      content: '本系统只做演示，支付系统已屏蔽',
+      text: 'center',
+      complete() {
+        wx.switchTab({
+          url: '/page/component/user/user'
+        })
+      }
+    })
   }
+
 })
