@@ -50,6 +50,27 @@ Page({
     that.getTotalPrice();
   },
 
+  onReady() {
+    var that = this;
+    wx.request({
+      url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView',
+      data: {
+        signature: that.data.signature
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        that.setData({
+          cartsitem: res.data.data
+        })
+      }
+    });
+    that.getTotalPrice();
+  },
+
+
   getTotalPrice() {
     var that = this;
     let carts = that.data.cartsitem;                  // 获取购物车列表
