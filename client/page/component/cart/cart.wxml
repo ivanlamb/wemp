@@ -1,17 +1,27 @@
-<view class="main">
+<scroll-view class="categroy-main" scroll-y="true" scroll-into-view="false" scroll-with-animation="true">
   <view wx:if="{{cartsitem}}">
-    <view class="cart-box">
-      <view class="cart-list" wx:for="{{cartsitem}}" wx:key="{{index}}">
-        <text class="cart-custname">客户名称：{{item.cin_custname}}</text>
-        <text class="cart-orderqty">数量：{{item.order_qty}}</text>
-        <text class="cart-itemprice">单价：{{item.item_price}}</text>
-        <text class="cart-amount">价格：{{item.amount}}</text>
-        <text class="cart-item_short_desc">项目：{{item.item_short_desc}}</text>
-        <text class="cart-item_long_desc">详述：{{item.item_long_desc}}</text>
-      </view>
+
+    <view class="categroy-up" scroll-y="false"> 
+      <text>客户名称：{{userInfo}}</text>
+      <text>客户ID：{{signature}}</text>
     </view>
+
+    <view class="cart-list" wx:for="{{cartsitem}}" wx:key="index" style="height: 70px;flex-direction:column;" >
+      <text>数量：{{item.order_qty}}</text>
+      <text>单价：{{item.item_price}}</text>
+      <text>价格：{{item.amount}}</text>
+      <text>项目：{{item.item_short_desc}}</text>
+      <text>详述：{{item.item_long_desc}}</text>
+    </view>
+
+    <view class="cart-tp">
+      <text class="cart-TotalPrice">總价：{{totalPrice}}</text>
+    </view>
+
+    <view class="categroy-bottom" scroll-y="false"> 
+      <button bindtap="paybill" size="mini">買單</button>
+    </view>
+
   </view>
-  <view wx:else>
-    <view class="cart-no-data">购物车是空的哦~</view>
-  </view>
-</view>
+
+</scroll-view>
