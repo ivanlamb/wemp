@@ -1,8 +1,10 @@
 <scroll-view class="categroy-main" scroll-y="true" scroll-into-view="false" scroll-with-animation="true">
   <view wx:if="{{cartsitem}}">
 
-    <view class="categroy-up" scroll-y="false"> 
+    <view class="categroy-username" scroll-y="false"> 
       <text>客户名称：{{userInfo}}</text>
+    </view>
+    <view class="categroy-userid" scroll-y="false"> 
       <text>客户ID：{{signature}}</text>
     </view>
 

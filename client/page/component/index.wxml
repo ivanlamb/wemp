@@ -1,28 +1,11 @@
 <view class="main">
-  <!--
-  <view class="userinfo" bindtap="login">
-      <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}" background-size="cover"></image>
-      <view>
-        <text class="userinfo-nickname">{{logged ? userInfo.nickName : '点击测试登录接口'}}</text>
-        <text class="userinfo-nickname" wx:if="{{logged}}">{{userInfo.lastLoginTime}}</text>
-      </view>
-  </view>
 
-  <view class="selected">
-    <view class="select-title">
-      <text>精选</text>
-    </view>
-  </view>
-  -->
-
-  <open-data type="userAvatarUrl"></open-data>
+  <!-- fix it later <open-data type="userAvatarUrl"></open-data> -->
   <open-data type="userNickName"></open-data>
+
   <!-- 需要使用 button 来授权登录 -->
   <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-  <view wx:else>请升级微信版本</view>
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">电话号码</button> 
 
-  <view class="selected">
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">电话号码</button> 
-  </view>
 
 </view>

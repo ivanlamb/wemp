@@ -11,29 +11,37 @@ Page({
     isScroll: true,
     counter1: 0,
     toView: '0',/*默认定位到哪个view*/
-    signature: '',
+    signature: '9025dde86c750ce452dc562b3428b6584b8c44df',
     userInfo: '',
     totalPrice: 0
   },
 
-  onShow () {
+  onReady () {
     var that = this;
+
+  /*
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
+              console.log('Hr', res);
+              console.log('Hrr', res.signature);
+              console.log('Hrrr', res.userInfo.nickName);
               that.setData({
                 signature: res.signature,
-                userInfo: res.userInfo
-              })
+                userInfo: res.userInfo.nickName
+              });
+              console.log('Hrrrr', that.data.signature);
             }
           })
         }
       }
-    })
+    });
+    */
+
     wx.request({
-      url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView',
+      url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView?signature',
       data: {
         signature: that.data.signature
       },
@@ -42,18 +50,21 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        console.log('Hrrrrr', res.data.data);
         that.setData({
           cartsitem: res.data.data
         })
       }
     });
+
+    console.log('Hrrrrrr', that.data.cartsitem);
     that.getTotalPrice();
   },
 
-  onReady() {
+  onShow() {
     var that = this;
     wx.request({
-      url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView',
+      url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView?signature',
       data: {
         signature: that.data.signature
       },
@@ -67,9 +78,9 @@ Page({
         })
       }
     });
+    console.log('Hrrrrr', that.data.cartsitem);
     that.getTotalPrice();
   },
-
 
   getTotalPrice() {
     var that = this;
@@ -81,6 +92,7 @@ Page({
     this.setData({                                // 最后赋值到data中渲染到页面
       totalPrice: total.toFixed(2)
     });
-  }
+  },
+
 
 })

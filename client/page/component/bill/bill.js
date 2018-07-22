@@ -11,29 +11,16 @@ Page({
       { cin_custname: 'kwokkawai', order_qty: 1, item_price: 35, amount: 35, item_short_desc: '土雞蛋炒蝦仁', item_long_desc: '土雞蛋炒蝦仁' },
       { cin_custname: 'kwokkawai', order_qty: 1, item_price: 60, amount: 60, item_short_desc: '椒鹽九肚魚', item_long_desc: '椒鹽九肚魚' }
     ],
-    signature: '',
+    signature: '9025dde86c750ce452dc562b3428b6584b8c44df',
     userInfo: ''
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onReady: function () {
     var that = this;
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
-              that.setData({
-                signature: res.signature,
-                userInfo: res.userInfo
-              })
-            }
-          })
-        }
-      }
-    });
+
     wx.request({
       url: 'http://44ln6hzr.qcloud.la/weapp/selectOrderView',
       data: {
